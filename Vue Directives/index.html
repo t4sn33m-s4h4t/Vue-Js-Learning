@@ -5,15 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue Directives</title>
     <style>
-        .bg-red{
-            background-color: red;
+        .bg-container{
+            background-color: purple;
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+        td,th{
+            padding: 15px 10px;
+            border: 2px solid gray;
+            font-size: 21px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
     </style>
 </head>
 <body>
     <div id="app">
         <div v-bind:class="vueClass">
-            {{data}}
+            <h1>Vue Directives</h1>
+            <table>
+                <th>Directive</th>
+                <th>Details</th>
+                <tr>
+                    <td>v-bind</td>
+                    <td>Connects an attribute in an HTML tag to a data variable inside the Vue instance.</td>
+                </tr>
+                <tr>
+                    <td>v-if</td>
+                    <td>Creates HTML tags depending on a condition. Directives v-else-if and v-else are used together with the v-if directive.</td>
+                </tr>
+                <tr>
+                    <td>v-show</td>
+                    <td>Specifies if an HTML element should be visible or not depending on a condition.</td>
+                </tr>
+                <tr>
+                    <td>v-for</td>
+                    <td>Creates a list of tags based on an array in the Vue instance using a for-loop.</td>
+                </tr>
+                <tr>
+                    <td>v-on</td>
+                    <td>Connects an event on an HTML tag to a JavaScript expression or a Vue instance method. We can also define more specifically how our page should react to a certain event by using <u>event-modifiers</u>.</td>
+                </tr>
+                <tr>
+                    <td>v-model</td>
+                    <td>Used in HTML forms with tags like &lt;form/&gt;
+                        , &lt;input/&gt;
+                        and &lt;button/&gt;
+                        . Creates a two way binding between an input element and a Vue instance data property.
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -21,8 +62,7 @@
         const app = Vue.createApp({
             data(){
                 return{
-                    vueClass: 'bg-red',
-                    data: 'V-Bind Working...'
+                    vueClass: 'bg-container',
                 }
             }
         })
