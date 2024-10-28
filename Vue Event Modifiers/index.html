@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Event Modifiers</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Right Click on the box below:</h1>
+        <div v-on:click.right.prevent="changeBg" :style="{backgroundColor:'hsl('+bgColor+', 900%, 40%)', height:'60vh', width:'60vw', }">
+          
+        </div>
+      </div>
+      
+      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+      <script>
+        const app = Vue.createApp({
+          data() {
+            return {
+              bgColor: 50
+            }
+          },
+          methods: {
+            changeBg(){
+                this.bgColor += 50;
+            }
+          }
+        })
+        app.mount('#app')
+      </script>
+</body>
+</html>
