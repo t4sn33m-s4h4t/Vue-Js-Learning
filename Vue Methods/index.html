@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Methods</title>
+</head>
+<body>
+    <div id="app">
+        <p>Click on the box below:</p>
+        <div v-on:click="writeText">
+            <h1>Here: {{ text }}</h1>
+          
+        </div>
+      </div>
+      
+      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+      <script>
+        const app = Vue.createApp({
+          data() {
+            return {
+              text: ''
+            }
+          },
+          methods: {
+            writeText(){
+                this.text = "Hello Vue!"
+            }
+          }
+        })
+        app.mount('#app')
+      </script>
+</body>
+</html>
