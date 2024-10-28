@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue v-bind Directive</title>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="src" alt="">
+        <!-- short version  -->
+         
+        <br>
+        <h1>VS</h1>
+         <br>
+         <img :src="" alt="">
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    src:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9edIFfWq1Fn6FRvwKThATfPwVuKr4Q-g9nw&s'
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+    
+</body>
+</html>
