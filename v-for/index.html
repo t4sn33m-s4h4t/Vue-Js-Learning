@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue-Show</title>
+    <title>Vue v-for</title>
 </head>
 <body>
     <div id="app">
-        <div id="lightDiv">
-            <div v-if="lightOn">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9edIFfWq1Fn6FRvwKThATfPwVuKr4Q-g9nw&s">
-            </div>
-            
-          
-        </div>
-        <button v-on:click=" lightOn = !lightOn ">Switch light</button>
-      </div>
+        <ol>
+            <li v-for="(x) in manyFoods">{{x.food}}</li>
+          </ol>
+    </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <script>
         const app = Vue.createApp({
             data(){
                 return{
-                    lightOn:true,
+                    manyFoods:[
+                    {id:1, food:'vaat'},
+                    {id:2, food:'maas'},
+                    {id:3, food:'dim'},
+                    {id:4, food:'Vue'},
+                    ]
                 }
             }
         })
