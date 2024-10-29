@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Forms</title>
+</head>
+<body>
+    <div id="app">
+        <form v-on:submit.prevent="addUser">
+            <input type="text" placeholder="Enter Your First Name" v-model="first_name">
+            <input type="text" placeholder="Enter Your Last Name" v-model="last_name">
+            <button  type="submit">Add Name</button>
+        </form>
+        <ul>
+            <li v-for="(name) in users">
+                {{name}}
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    first_name: '',
+                    last_name: '',
+                    users: [
+                        'Tasneem','Sahat','Another Name',
+                    ]
+                }
+            },
+            methods:{
+                addUser(){
+                    first_name = this.first_name;
+                    last_name = this.last_name;
+                    full_name = first_name+' ' + last_name
+                    this.users.push(full_name)
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
