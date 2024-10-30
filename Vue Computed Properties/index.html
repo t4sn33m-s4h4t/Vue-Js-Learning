@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Computed Properties
+    </title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{isAct}}</h1>
+        <input id="isActive" type="checkbox" v-model="isActive"> <label for="isActive"> Click Here!</label>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    isActive: false,
+                }
+            },
+            computed:{
+                isAct(){
+                    if (this.isActive){
+                    return "Site is Active"
+                    }else{
+                        return "Opps! Not Active"
+                    }
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
