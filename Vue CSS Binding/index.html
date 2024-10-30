@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue CSS Binding
+    </title>
+    <style>
+        .bgred{
+            background-color: red;
+        }
+        .bggreen{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- inline CSS  -->
+         <input type="range" v-model="opval">
+         <div v-bind:style="{backgroundColor: 'rgba(255,20,25,'+opval/100+')'}">
+            We use v-bind:style to do in-line styling in Vue.
+        </div><br><br>
+        <!-- Assign a Class -->
+         <div v-bind:class="{bgred:yelClass }">BG Red</div>
+         <div v-bind:class="[{bggreen: isImp},]">BG Red</div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    opval:0,
+                    yelClass: true,
+                    isImp: true,
+                }
+            },
+            methods:{
+               
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
