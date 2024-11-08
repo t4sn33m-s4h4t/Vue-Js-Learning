@@ -1,28 +1,30 @@
-
-
 <template>
-  
-  <food-item 
-  v-for="x in foods" 
-  :key="x" 
-  :food-name="x" 
-  @toggle-favorite="receiveEmit"/>
-  
+  <h3>Todo List</h3>  
+  <ul>
+    <todo-item
+      v-for="x in items"
+      :key="x"
+      :item-name="x"
+      style="background-color: rosybrown;"
+    />
+  </ul>
+  <input v-model="newItem">
+  <button @click="addItem">Add</button>
 </template>
 
 <script>
-export default{
-  data(){
-    return{
-      foods:['apple','orrange', 'Chili']
+  export default {
+    data() {
+      return {
+        newItem: '',
+        items: ['Buy apples','Make pizza','Mow the lawn']
+      };
+    },
+    methods: {
+      addItem() {
+        this.items.push(this.newItem),
+        this.newItem = '';
+      }
     }
-  },
-  methods:{
-    receiveEmit(foodId) {
-      console.log(foodId)
-    alert('you clicked: ' + foodId);
   }
-  }
-}
 </script>
-<style></style>
